@@ -5,13 +5,12 @@ const loader = document.getElementById('loader');
 const msg = document.getElementById('message');
 
 // CONFIGURAÇÃO
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwHTRxhOutgOrC3rfZwneKRm16dNRRNZhnnbU0vlGttUhnfyUfqKky-bxwokAg6NlbWBQ/exec"; // URL do seu Google Apps Script
-const SEU_WHATSAPP = "555132884938"; // Seu número configurado
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwHTRxhOutgOrC3rfZwneKRm16dNRRNZhnnbU0vlGttUhnfyUfqKky-bxwokAg6NlbWBQ/exec"; // Substitua pela URL do seu Web App
+const SEU_WHATSAPP = "555132884938"; 
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    // Inicia animação de loading
     btn.disabled = true;
     btnText.innerText = "PROCESSANDO...";
     loader.style.display = "block";
@@ -21,7 +20,6 @@ form.addEventListener('submit', async (e) => {
     const data = Object.fromEntries(formData.entries());
 
     try {
-        // Envia para o Google Sheets
         await fetch(WEB_APP_URL, {
             method: 'POST',
             mode: 'no-cors',
@@ -29,7 +27,6 @@ form.addEventListener('submit', async (e) => {
             headers: { 'Content-Type': 'application/json' }
         });
 
-        // Sucesso
         msg.innerText = "✅ Cadastro salvo! Abrindo WhatsApp...";
         msg.style.color = "#a5d6a7";
 
