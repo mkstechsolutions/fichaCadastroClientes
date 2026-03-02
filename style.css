@@ -1,0 +1,180 @@
+:root {
+    --bg-dark: #0a0a0c;
+    --purple-main: #6a1b9a; 
+    --purple-light: #9c4dcc;
+    --text-white: #f5f5f5;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 15% 15%, rgba(106, 27, 154, 0.2) 0%, transparent 35%),
+                radial-gradient(circle at 85% 85%, rgba(106, 27, 154, 0.2) 0%, transparent 35%);
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.brand-title {
+    color: var(--purple-light);
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.brand-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    color: #aaa;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+    color: #bbb;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: var(--purple-main);
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    background: var(--purple-main);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: var(--purple-light);
+    box-shadow: 0 0 20px rgba(106, 27, 154, 0.4);
+}
+
+.message {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+@media (max-width: 480px) {
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ... (mantenha o CSS anterior e adicione/substitua estas partes) ... */
+
+button {
+    width: 100%;
+    padding: 16px;
+    background: var(--purple-main);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+}
+
+button:disabled {
+    background: #444;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Animação do Loader */
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.message {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    min-height: 20px; /* Evita que o layout pule quando a mensagem aparece */
+}
